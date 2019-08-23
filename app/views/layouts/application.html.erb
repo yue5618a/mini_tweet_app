@@ -18,7 +18,10 @@
     <li><%= link_to "投稿一覧", posts_index_path %></li>
     <li><%= link_to "新規投稿", posts_new_path %></li>
   </ul>
-</header>  
+</header> 
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+  <% end %>
     
     <%= yield %>
   </body>
