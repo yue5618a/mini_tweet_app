@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   post 'posts/:id/update', to: 'posts#update', as: :update_post
   post 'posts/:id/destroy', to: 'posts#destroy', as: :destroy_post
   
-  resources :user
+  resources :users
 end
   
