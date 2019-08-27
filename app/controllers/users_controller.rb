@@ -51,6 +51,7 @@ class UsersController < ApplicationController
  def login
    @user = User.find_by(email: params[:email], password: params[:password])
   if @user
+    session[:user_id] = @user.id
     flash[:notice] = "ログインしました。"
     redirect_to posts_index_url
   else
