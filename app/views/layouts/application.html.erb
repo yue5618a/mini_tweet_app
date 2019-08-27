@@ -23,6 +23,7 @@
     <li><%= link_to "全てのユーザー", users_path %></li> 
     <li><%= link_to "ユーザー新規登録", new_user_path %></li>
     <li><%= link_to "ログイン", login_path %></li>
+    <li><%= link_to "ログアウト", logout_path, method: :post %></li>
   </ul>
 </header> 
 <% if flash[:notice] %>
