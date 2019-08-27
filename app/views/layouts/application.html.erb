@@ -13,20 +13,21 @@
   <div class="header-logo">
     <%= link_to "MiniTweet", root_path %>
   </div>
-  <ul class="header-menus">
+   <ul class="header-menus">
     <% if session[:user_id] %>
        <li>現在ログイン中のユーザー【<%= User.find(session[:user_id]).name %>】</li>
-    <% end %>   
-    <li><%= link_to "MiniTweetについて", about_path %></li>
-    <li><%= link_to "投稿一覧", posts_index_path %></li>
-    <li><%= link_to "新規投稿", posts_new_path %></li>
-    <li><%= link_to "全てのユーザー", users_path %></li> 
-    <li><%= link_to "ユーザー新規登録", new_user_path %></li>
-    <li><%= link_to "ログイン", login_path %></li>
-    <li><%= link_to "ログアウト", logout_path, method: :post %></li>
-  </ul>
-</header> 
-<% if flash[:notice] %>
+       <li><%= link_to "投稿一覧", posts_index_path %></li>
+       <li><%= link_to "新規投稿", posts_new_path %></li>
+       <li><%= link_to "全てのユーザー", users_path %></li> 
+       <li><%= link_to "ログアウト", logout_path, method: :post %></li>
+    <% else %>
+       <li><%= link_to "MiniTweetについて", about_path %></li>
+       <li><%= link_to "ユーザー新規登録", new_user_path %></li>
+       <li><%= link_to "ログイン", login_path %></li>
+    <% end %>
+   </ul>
+  </header> 
+  <% if flash[:notice] %>
   <div class="flash"><%= flash[:notice] %></div>
   <% end %>
     
