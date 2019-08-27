@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
+ before_action :authenticate_user
   def new
-   @post = Post.new
+   unless @current_user
+     flash[:notice] = "ログインしてください。"
+     redirect_to login_url
+   end  
+     @post = Post.new
   end
  def create
   @post = Post.new(content: params[:content])
