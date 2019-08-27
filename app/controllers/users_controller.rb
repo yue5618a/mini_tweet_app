@@ -1,6 +1,8 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:index, :show, :edit, :update]
+  before_action :limitation_login_user, only: [:new, :create, :login_page, :login]
+  before_action :limitation_correct_user, only: [:edit, :update]
   def index
     @users = User.all
   end
@@ -69,4 +71,10 @@ class UsersController < ApplicationController
    flash[:notice] = "ログアウトしました。"
    redirect_to login_url
  end 
+ def limitation_correct_user
+   unless @current_user.id == params[:id].to_i
+   flash[:notice] = "他のユーザー編集はできません。"
+   redirect_to posts_index_url
+   end
+ end
 end 
