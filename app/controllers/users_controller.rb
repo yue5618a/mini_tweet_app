@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+ 
   def update
     @user = User.find(params[:id])
     @user.name = params[:name]
@@ -45,4 +45,6 @@ class UsersController < ApplicationController
     render :edit
   end
   end
+  def login_page
+  end  
 end 
